@@ -407,7 +407,8 @@ if (process.env.NODE_ENV === 'development') {
 
 运行后：
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/95214d19-bdd2-429a-b2cc-b49e8b351f24)
+
 
 
 （3）[NoticeBar](https://uview-plus.jiangruyi.com/components/noticeBar.html)组件
