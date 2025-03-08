@@ -21,6 +21,33 @@
 			}
 		}
 	],
+	"tarBar": {
+		"color": "#7a7e83",
+		// 点击后的颜色
+		"selectedColor": "#2867ce",
+		"borderStyle": "#000",
+		"backgroundColor": "#fff",
+		// 页面路径
+		"list": [
+			{
+				"pagePath": "page/index/index",	
+				"iconPath": "static/tabbar/ly-home01.png",
+				"selectedIconPath": "static/tabbar/ly-home.png",
+				"text": "首页"
+			}, {
+				"pagePath": "page/like/like",	
+				"iconPath": "static/tabbar/ly-link01.png",
+				"selectedIconPath": "static/tabbar/ly-link.png",
+				"text": "喜欢"
+			}, {
+				"pagePath": "page/my/my",	
+				"iconPath": "static/tabbar/ly-my01.png",
+				"selectedIconPath": "static/tabbar/ly-my.png",
+				"text": "我的"
+			}
+		]
+	}
+	,
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
