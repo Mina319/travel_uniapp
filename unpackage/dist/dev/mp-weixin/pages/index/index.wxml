@@ -1,1 +1,1 @@
-<view class="content"><image class="logo" src="{{a}}"></image><view class="text-area"><text class="title">{{b}}</text></view></view>
+<view class="{{['content', virtualHostClass]}}" style="{{virtualHostStyle}}" hidden="{{virtualHostHidden}}" id="{{virtualHostId}}"><up-button wx:if="{{a}}" u-i="2c284f58-0" bind:__l="__l" u-p="{{a}}"></up-button></view>

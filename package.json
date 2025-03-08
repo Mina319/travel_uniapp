@@ -1,0 +1,25 @@
+{
+  "name": "travel_uniapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mina319/travel_uniapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mina319/travel_uniapp/issues"
+  },
+  "homepage": "https://github.com/Mina319/travel_uniapp#readme",
+  "dependencies": {
+    "clipboard": "^2.0.11",
+    "dayjs": "^1.11.13",
+    "uview-plus": "^3.3.74"
+  }
+}

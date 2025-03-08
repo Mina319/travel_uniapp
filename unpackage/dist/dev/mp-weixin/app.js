@@ -19,6 +19,7 @@ const _sfc_main = {
 };
 function createApp() {
   const app = common_vendor.createSSRApp(_sfc_main);
+  app.use(common_vendor.uviewPlus);
   return {
     app
   };
