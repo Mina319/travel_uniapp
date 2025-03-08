@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "uni-app",
   "usingComponents": {
-    "up-button": "../../node-modules/uview-plus/components/u-button/u-button"
+    "up-search": "../../node-modules/uview-plus/components/u-search/u-search",
+    "up-swiper": "../../node-modules/uview-plus/components/u-swiper/u-swiper"
   }
 }

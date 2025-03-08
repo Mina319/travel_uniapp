@@ -1,0 +1,1 @@
+{"version":3,"file":"mock.js","sources":["api/mock.js"],"sourcesContent":["import Mock from 'mockjs'\r\nimport pageApi from './mockData/pageApi.js'\r\n\r\n// Mock.mock('http://localhost:5173/api')\r\n\r\n// 正则匹配\r\nMock.mock(/api\\/user\\/getBanner/, 'get', pageApi.getBanner)\r\n\r\n"],"names":["Mock","pageApi"],"mappings":";;;AAMAA,cAAI,KAAC,KAAK,wBAAwB,OAAOC,qBAAO,QAAC,SAAS;"}

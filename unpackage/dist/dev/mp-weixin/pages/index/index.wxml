@@ -1,1 +1,1 @@
-<view class="{{['content', virtualHostClass]}}" style="{{virtualHostStyle}}" hidden="{{virtualHostHidden}}" id="{{virtualHostId}}"><up-button wx:if="{{a}}" u-i="2c284f58-0" bind:__l="__l" u-p="{{a}}"></up-button></view>
+<view class="{{['content', virtualHostClass]}}" style="{{virtualHostStyle}}" hidden="{{virtualHostHidden}}" id="{{virtualHostId}}"><up-search wx:if="{{b}}" u-i="2c284f58-0" bind:__l="__l" bindupdateModelValue="{{a}}" u-p="{{b}}"></up-search><up-swiper wx:if="{{c}}" u-i="2c284f58-1" bind:__l="__l" u-p="{{d}}"></up-swiper></view>

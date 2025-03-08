@@ -1,49 +1,31 @@
 <template>
 	<view class="content">
-		<up-button text="渐变色按钮" color="linear-gradient(to right, rgb(66, 83, 216), rgb(213, 51, 186))"></up-button>
+		<up-search placeholder="搜索景点" bg-color="#e3e3e3" v-model="keyword"></up-search>
+		<up-swiper v-if="bannerList.length" keyName="image" showTitle="title" :list="bannerList" radius="8" :autoplay="true" height="160"></up-swiper>
 	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
-	}
+<script setup>
+	import { getBanner } from '../../api/api.js'
+	import { onLoad } from '@dcloudio/uni-app'
+	import {
+		ref,
+		reactive
+	} from 'vue'
+	
+	const keyword = ref('')
+	const bannerList = ref([])
+	
+	onLoad(() => {
+		getBanner().then(res => {
+			console.log(res, 'res')
+			bannerList.value = res.bannerList
+		})
+	})
 </script>
 
-<style>
+<style lang="scss">
 	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+		padding: 20px 20px;
 	}
 </style>
