@@ -5235,14 +5235,56 @@ function findScopedSlotInvoker(vueId, instance) {
     parent = parent.parent;
   }
 }
+function withScopedSlot(fn, { name, path, vueId }) {
+  const instance = getCurrentInstance();
+  fn.path = path;
+  const scopedSlots = instance.$ssi || (instance.$ssi = {});
+  const invoker = scopedSlots[vueId] || (scopedSlots[vueId] = createScopedSlotInvoker(instance));
+  if (!invoker.slots[name]) {
+    invoker.slots[name] = {
+      fn
+    };
+  } else {
+    invoker.slots[name].fn = fn;
+  }
+  return getValueByDataPath(instance.ctx.$scope.data, path);
+}
+function createScopedSlotInvoker(instance) {
+  const invoker = (slotName, args, index2) => {
+    const slot = invoker.slots[slotName];
+    if (!slot) {
+      return;
+    }
+    const hasIndex = typeof index2 !== "undefined";
+    index2 = index2 || 0;
+    const prevInstance = setCurrentRenderingInstance(instance);
+    const data = slot.fn(args, slotName + (hasIndex ? "-" + index2 : ""), index2);
+    const path = slot.fn.path;
+    setCurrentRenderingInstance(prevInstance);
+    (instance.$scopedSlotsData || (instance.$scopedSlotsData = [])).push({
+      path,
+      index: index2,
+      data
+    });
+    instance.$updateScopedSlots();
+  };
+  invoker.slots = {};
+  return invoker;
+}
+function setRef(ref2, id, opts = {}) {
+  const { $templateRefs } = getCurrentInstance();
+  $templateRefs.push({ i: id, r: ref2, k: opts.k, f: opts.f });
+}
 const o = (value, key2) => vOn(value, key2);
 const f = (source, renderItem) => vFor(source, renderItem);
 const r = (name, props2, key2) => renderSlot(name, props2, key2);
+const w = (fn, options2) => withScopedSlot(fn, options2);
 const s = (value) => stringifyStyle(value);
 const e = (target, ...sources) => extend(target, ...sources);
 const n = (value) => normalizeClass(value);
 const t = (val) => toDisplayString(val);
 const p = (props2) => renderProps(props2);
+const sr = (ref2, id, opts) => setRef(ref2, id, opts);
 function createApp$1(rootComponent, rootProps = null) {
   rootComponent && (rootComponent.mpType = "app");
   return createVueApp(rootComponent, rootProps).use(plugin);
@@ -17415,13 +17457,13 @@ var mock = { exports: {} };
               }
               function p2() {
                 var n4;
-                return n4 = v(), null === n4 && (n4 = w(), null === n4 && (n4 = A(), null === n4 && (n4 = C(), null === n4 && (n4 = g(), null === n4 && (n4 = b()))))), n4;
+                return n4 = v(), null === n4 && (n4 = w2(), null === n4 && (n4 = A(), null === n4 && (n4 = C(), null === n4 && (n4 = g(), null === n4 && (n4 = b()))))), n4;
               }
               function v() {
                 var l2, u3, t3, r3, o3, c2;
                 return l2 = qt, 123 === n3.charCodeAt(qt) ? (u3 = xl, qt++) : (u3 = null, 0 === Wt && e2(yl)), null !== u3 ? (t3 = T(), null !== t3 ? (44 === n3.charCodeAt(qt) ? (r3 = ml, qt++) : (r3 = null, 0 === Wt && e2(Rl)), null !== r3 ? (o3 = T(), null !== o3 ? (125 === n3.charCodeAt(qt) ? (c2 = Fl, qt++) : (c2 = null, 0 === Wt && e2(Ql)), null !== c2 ? (Lt = l2, u3 = Sl(t3, o3), null === u3 ? (qt = l2, l2 = u3) : l2 = u3) : (qt = l2, l2 = il)) : (qt = l2, l2 = il)) : (qt = l2, l2 = il)) : (qt = l2, l2 = il)) : (qt = l2, l2 = il), l2;
               }
-              function w() {
+              function w2() {
                 var l2, u3, t3, r3;
                 return l2 = qt, 123 === n3.charCodeAt(qt) ? (u3 = xl, qt++) : (u3 = null, 0 === Wt && e2(yl)), null !== u3 ? (t3 = T(), null !== t3 ? (n3.substr(qt, 2) === Ul ? (r3 = Ul, qt += 2) : (r3 = null, 0 === Wt && e2(El)), null !== r3 ? (Lt = l2, u3 = Gl(t3), null === u3 ? (qt = l2, l2 = u3) : l2 = u3) : (qt = l2, l2 = il)) : (qt = l2, l2 = il)) : (qt = l2, l2 = il), l2;
               }
@@ -18751,7 +18793,9 @@ const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
   !isInSSRComponentSetup && injectHook(lifecycle, hook, target);
 };
 const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
-const props$4 = defineMixin({
+const onPageScroll = /* @__PURE__ */ createHook(ON_PAGE_SCROLL);
+const onReachBottom = /* @__PURE__ */ createHook(ON_REACH_BOTTOM);
+const props$7 = defineMixin({
   props: {
     // 搜索框形状，round-圆形，square-方形
     shape: {
@@ -18883,7 +18927,7 @@ const props$4 = defineMixin({
     }
   }
 });
-const props$3 = defineMixin({
+const props$6 = defineMixin({
   props: {
     // 列表数组，元素可为字符串，如为对象可通过keyName指定目标属性名
     list: {
@@ -19005,6 +19049,80 @@ const props$3 = defineMixin({
     showTitle: {
       type: Boolean,
       default: () => defProps.swiper.showTitle
+    }
+  }
+});
+const props$5 = defineMixin({
+  props: {
+    // 显示的内容，数组
+    text: {
+      type: [Array, String],
+      default: () => defProps.noticeBar.text
+    },
+    // 通告滚动模式，row-横向滚动，column-竖向滚动
+    direction: {
+      type: String,
+      default: () => defProps.noticeBar.direction
+    },
+    // direction = row时，是否使用步进形式滚动
+    step: {
+      type: Boolean,
+      default: () => defProps.noticeBar.step
+    },
+    // 是否显示左侧的音量图标
+    icon: {
+      type: String,
+      default: () => defProps.noticeBar.icon
+    },
+    // 通告模式，link-显示右箭头，closable-显示右侧关闭图标
+    mode: {
+      type: String,
+      default: () => defProps.noticeBar.mode
+    },
+    // 文字颜色，各图标也会使用文字颜色
+    color: {
+      type: String,
+      default: () => defProps.noticeBar.color
+    },
+    // 背景颜色
+    bgColor: {
+      type: String,
+      default: () => defProps.noticeBar.bgColor
+    },
+    // 水平滚动时的滚动速度，即每秒滚动多少px(px)，这有利于控制文字无论多少时，都能有一个恒定的速度
+    speed: {
+      type: [String, Number],
+      default: () => defProps.noticeBar.speed
+    },
+    // 字体大小
+    fontSize: {
+      type: [String, Number],
+      default: () => defProps.noticeBar.fontSize
+    },
+    // 滚动一个周期的时间长，单位ms
+    duration: {
+      type: [String, Number],
+      default: () => defProps.noticeBar.duration
+    },
+    // 是否禁止用手滑动切换
+    // 目前HX2.6.11，只支持App 2.5.5+、H5 2.5.5+、支付宝小程序、字节跳动小程序
+    disableTouch: {
+      type: Boolean,
+      default: () => defProps.noticeBar.disableTouch
+    },
+    // 跳转的页面路径
+    url: {
+      type: String,
+      default: () => defProps.noticeBar.url
+    },
+    // 页面跳转的类型
+    linkType: {
+      type: String,
+      default: () => defProps.noticeBar.linkType
+    },
+    justifyContent: {
+      type: String,
+      default: () => defProps.noticeBar.justifyContent
     }
   }
 });
@@ -19222,7 +19340,7 @@ const icons = {
   "uicon-zh": "",
   "uicon-en": ""
 };
-const props$2 = defineMixin({
+const props$4 = defineMixin({
   props: {
     // 图标类名
     name: {
@@ -19311,7 +19429,7 @@ const props$2 = defineMixin({
     }
   }
 });
-const props$1 = defineMixin({
+const props$3 = defineMixin({
   props: {
     // 是否显示组件
     show: {
@@ -19370,7 +19488,7 @@ const props$1 = defineMixin({
     }
   }
 });
-const props = defineMixin({
+const props$2 = defineMixin({
   props: {
     // 轮播的长度
     length: {
@@ -19399,6 +19517,104 @@ const props = defineMixin({
     }
   }
 });
+const props$1 = defineMixin({
+  props: {
+    // 显示的内容，字符串
+    text: {
+      type: [Array],
+      default: () => defProps.columnNotice.text
+    },
+    // 是否显示左侧的音量图标
+    icon: {
+      type: String,
+      default: () => defProps.columnNotice.icon
+    },
+    // 通告模式，link-显示右箭头，closable-显示右侧关闭图标
+    mode: {
+      type: String,
+      default: () => defProps.columnNotice.mode
+    },
+    // 文字颜色，各图标也会使用文字颜色
+    color: {
+      type: String,
+      default: () => defProps.columnNotice.color
+    },
+    // 背景颜色
+    bgColor: {
+      type: String,
+      default: () => defProps.columnNotice.bgColor
+    },
+    // 字体大小，单位px
+    fontSize: {
+      type: [String, Number],
+      default: () => defProps.columnNotice.fontSize
+    },
+    // 水平滚动时的滚动速度，即每秒滚动多少px(px)，这有利于控制文字无论多少时，都能有一个恒定的速度
+    speed: {
+      type: [String, Number],
+      default: () => defProps.columnNotice.speed
+    },
+    // direction = row时，是否使用步进形式滚动
+    step: {
+      type: Boolean,
+      default: () => defProps.columnNotice.step
+    },
+    // 滚动一个周期的时间长，单位ms
+    duration: {
+      type: [String, Number],
+      default: () => defProps.columnNotice.duration
+    },
+    // 是否禁止用手滑动切换
+    // 目前HX2.6.11，只支持App 2.5.5+、H5 2.5.5+、支付宝小程序、字节跳动小程序
+    disableTouch: {
+      type: Boolean,
+      default: () => defProps.columnNotice.disableTouch
+    },
+    justifyContent: {
+      type: String,
+      default: () => defProps.columnNotice.justifyContent
+    }
+  }
+});
+const props = defineMixin({
+  props: {
+    // 显示的内容，字符串
+    text: {
+      type: String,
+      default: () => defProps.rowNotice.text
+    },
+    // 是否显示左侧的音量图标
+    icon: {
+      type: String,
+      default: () => defProps.rowNotice.icon
+    },
+    // 通告模式，link-显示右箭头，closable-显示右侧关闭图标
+    mode: {
+      type: String,
+      default: () => defProps.rowNotice.mode
+    },
+    // 文字颜色，各图标也会使用文字颜色
+    color: {
+      type: String,
+      default: () => defProps.rowNotice.color
+    },
+    // 背景颜色
+    bgColor: {
+      type: String,
+      default: () => defProps.rowNotice.bgColor
+    },
+    // 字体大小，单位px
+    fontSize: {
+      type: [String, Number],
+      default: () => defProps.rowNotice.fontSize
+    },
+    // 水平滚动时的滚动速度，即每秒滚动多少px(rpx)，这有利于控制文字无论多少时，都能有一个恒定的速度
+    speed: {
+      type: [String, Number],
+      default: () => defProps.rowNotice.speed
+    }
+  }
+});
 exports.Mock = Mock;
 exports._export_sfc = _export_sfc;
 exports.addStyle = addStyle;
@@ -19409,6 +19625,8 @@ exports.createSSRApp = createSSRApp;
 exports.e = e;
 exports.error = error;
 exports.f = f;
+exports.getPx = getPx;
+exports.guid = guid;
 exports.icons = icons;
 exports.index = index$1;
 exports.mixin = mixin;
@@ -19416,17 +19634,25 @@ exports.mpMixin = mpMixin;
 exports.n = n;
 exports.o = o;
 exports.onLoad = onLoad;
+exports.onPageScroll = onPageScroll;
+exports.onReachBottom = onReachBottom;
 exports.p = p;
-exports.props = props$4;
-exports.props$1 = props$3;
-exports.props$2 = props$2;
-exports.props$3 = props$1;
-exports.props$4 = props;
+exports.props = props$7;
+exports.props$1 = props$6;
+exports.props$2 = props$5;
+exports.props$3 = props$4;
+exports.props$4 = props$3;
+exports.props$5 = props$2;
+exports.props$6 = props$1;
+exports.props$7 = props;
 exports.r = r;
 exports.ref = ref;
 exports.resolveComponent = resolveComponent;
 exports.s = s;
+exports.sleep = sleep;
+exports.sr = sr;
 exports.t = t;
 exports.test = test;
 exports.uviewPlus = uviewPlus;
+exports.w = w;
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

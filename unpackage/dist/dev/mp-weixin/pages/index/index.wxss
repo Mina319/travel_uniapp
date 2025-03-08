@@ -24,5 +24,73 @@
 /* 透明度 */
 /* 文章场景相关 */
 .content {
-  padding: 20px 20px;
+  padding: 20rpx 20rpx;
+}
+.content .list {
+  margin: 30px 0;
+}
+.content .list .demo-water {
+  margin: 10rpx 10rpx 10rpx 0;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 16rpx;
+  position: relative;
+}
+.content .demo-title {
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  color: #303133;
+}
+.content .demo-price {
+  font-size: 24rpx;
+  color: #777;
+  margin-top: 10rpx;
+}
+.content .demo-tag {
+  display: flex;
+  margin-top: 10rpx;
+}
+.content .demo-tag .demo-tag-owner {
+  border: 1px solid #fca381;
+  color: #ffaa00;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  padding: 4rpx 14rpx;
+  border-radius: 50rpx;
+}
+.content .demo-tag .demo-tag-text {
+  border: 1px solid #00aaff;
+  color: #00aaff;
+  margin-left: 24rpx;
+  border-radius: 50rpx;
+  padding: 4rpx 14rpx;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.content .isDot {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background-color: #ff0000;
+  line-height: 32rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  padding: 4rpx 10rpx;
+}
+.topClass {
+  position: fixed;
+  bottom: 120rpx;
+  right: 30rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30rpx;
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
