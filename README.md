@@ -47,7 +47,8 @@ HBuilder
 
 ## 2、导入uview-plus组件
 
-<img src="assets/image-20250308183147278.png" alt="image-20250308183147278" style="zoom:50%;" />
+![image](https://github.com/user-attachments/assets/f8534ec9-f5de-4751-88a6-dba98cc0621e)
+
 
 ### [NPM安装方式配置](https://uview-plus.jiangruyi.com/components/npmSetting.html)
 
@@ -127,7 +128,8 @@ export function createApp() {
 </template>
 ```
 
-<img src="assets/image-20250308185937208.png" alt="image-20250308185937208" style="zoom:50%;" />
+![image](https://github.com/user-attachments/assets/5bb1e324-ac40-477f-9ac0-0bb6a9422634)
+
 
 ## 3、接口和http请求封装
 
@@ -208,15 +210,18 @@ export const getBanner = () => {
 </script>
 ```
 
-<img src="assets/image-20250308205418053.png" alt="image-20250308205418053" style="zoom:50%;" />
+![image](https://github.com/user-attachments/assets/09d0e370-d8c2-4d9f-bb99-1e2fe0467b06)
 
-<img src="assets/image-20250308205520450.png" alt="image-20250308205520450" style="zoom:50%;" />
+
+![image](https://github.com/user-attachments/assets/f6425ee3-0c6d-4a21-81ab-0025ae46c507)
+
 
 ## 4、小程序和H5数据mock过程
 
 微信小程序设置mock：当后端接口还没开发好，可以使用mock数据进行模拟
 
-![image-20250308205918971](assets/image-20250308205918971.png)
+![image](https://github.com/user-attachments/assets/6934af5c-e882-439b-a3e4-2c0eace1fc10)
+
 
 微信小程序mock数据
 
@@ -281,7 +286,8 @@ import './api/mock.js'
 
 运行在谷歌浏览器打开
 
-<img src="assets/image-20250308214453885.png" alt="image-20250308214453885" style="zoom:50%;" />
+![image](https://github.com/user-attachments/assets/05906399-ae70-4b8b-b2d4-826971d3e487)
+
 
 ## 5、首页banner和搜索
 
@@ -343,7 +349,8 @@ import './api/mock.js'
 
 重启一下，显示正常：
 
-<img src="assets/image-20250308215957928.png" alt="image-20250308215957928" style="zoom:50%;" />
+![image](https://github.com/user-attachments/assets/9eb0fae7-374b-44b3-b6ae-f98a7adabd91)
+
 
 （2）显示[swiper轮播图](https://uview-plus.jiangruyi.com/components/swiper.html)
 
@@ -397,7 +404,8 @@ if (process.env.NODE_ENV === 'development') {
 
 运行后：
 
-<img src="assets/image-20250308221507541.png" alt="image-20250308221507541" style="zoom:50%;" />
+![Uploading image.png…]()
+
 
 （3）[NoticeBar](https://uview-plus.jiangruyi.com/components/noticeBar.html)组件
 
