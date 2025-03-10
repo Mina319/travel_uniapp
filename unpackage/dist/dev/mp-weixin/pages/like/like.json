@@ -1,4 +1,5 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "喜欢",
+  "enablePullDownRefresh": false,
   "usingComponents": {}
 }

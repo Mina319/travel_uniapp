@@ -3,45 +3,46 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "首页"
 			}
 		},
 		{
 			"path" : "pages/like/like",
 			"style" : 
 			{
-				"navigationBarTitleText" : ""
+				"navigationBarTitleText" : "喜欢",
+				"enablePullDownRefresh": false
 			}
 		},	
-		
 		{
 			"path" : "pages/my/my",
-			"style" : ""
+			"style" : 
 			{
-				"navigationBarTitleText" : ""
+				"navigationBarTitleText" : "我的",
+				"enablePullDownRefresh": false
 			}
 		}
 	],
-	"tarBar": {
+	"tabBar": {
 		"color": "#7a7e83",
 		// 点击后的颜色
 		"selectedColor": "#2867ce",
-		"borderStyle": "#000",
+		"borderStyle": "white",
 		"backgroundColor": "#fff",
 		// 页面路径
 		"list": [
 			{
-				"pagePath": "page/index/index",	
+				"pagePath": "pages/index/index",	
 				"iconPath": "static/tabbar/ly-home01.png",
 				"selectedIconPath": "static/tabbar/ly-home.png",
 				"text": "首页"
 			}, {
-				"pagePath": "page/like/like",	
+				"pagePath": "pages/like/like",	
 				"iconPath": "static/tabbar/ly-link01.png",
 				"selectedIconPath": "static/tabbar/ly-link.png",
 				"text": "喜欢"
 			}, {
-				"pagePath": "page/my/my",	
+				"pagePath": "pages/my/my",	
 				"iconPath": "static/tabbar/ly-my01.png",
 				"selectedIconPath": "static/tabbar/ly-my.png",
 				"text": "我的"
