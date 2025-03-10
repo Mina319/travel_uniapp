@@ -91,7 +91,7 @@ const _sfc_main = {
           return {
             a: common_vendor.f(leftList, (item, index, i1) => {
               return common_vendor.e({
-                a: "2c284f58-4-" + i0 + "-" + i1 + ",2c284f58-3",
+                a: "1cf27b2a-4-" + i0 + "-" + i1 + ",1cf27b2a-3",
                 b: common_vendor.p({
                   threshold: "-450",
                   ["border-radius"]: "10",
@@ -116,7 +116,7 @@ const _sfc_main = {
         }, {
           name: "left",
           path: "f",
-          vueId: "2c284f58-3"
+          vueId: "1cf27b2a-3"
         }),
         g: common_vendor.w(({
           rightList
@@ -124,7 +124,7 @@ const _sfc_main = {
           return {
             a: common_vendor.f(rightList, (item, index, i1) => {
               return common_vendor.e({
-                a: "2c284f58-5-" + i0 + "-" + i1 + ",2c284f58-3",
+                a: "1cf27b2a-5-" + i0 + "-" + i1 + ",1cf27b2a-3",
                 b: common_vendor.p({
                   threshold: "-450",
                   ["border-radius"]: "10",
@@ -149,9 +149,9 @@ const _sfc_main = {
         }, {
           name: "right",
           path: "g",
-          vueId: "2c284f58-3"
+          vueId: "1cf27b2a-3"
         }),
-        h: common_vendor.sr("waterfallRef", "2c284f58-3"),
+        h: common_vendor.sr("waterfallRef", "1cf27b2a-3"),
         i: common_vendor.o(($event) => flowList.value = $event),
         j: common_vendor.p({
           modelValue: flowList.value
@@ -168,6 +168,7 @@ const _sfc_main = {
     };
   }
 };
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-1cf27b2a"]]);
 _sfc_main.__runtimeHooks = 1;
-wx.createPage(_sfc_main);
+wx.createPage(MiniProgramPage);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/index/index.js.map
