@@ -11,7 +11,7 @@
 					<uni-icons type="chat" size="30" color="#fff"></uni-icons>
 				</view>
 			</view>
-			<view class="users">
+			<view class="users" @click="setFun">
 				<view class="u-top">
 					<template v-if="!userInfo.nickName">
 						<image src="../../static/tt.jpg" mode="aspectFill"></image>
@@ -42,6 +42,7 @@
 						<view class="u-tit">收藏</view>
 					</view>
 				</view>
+			
 			</view>
 			
 		</view>
@@ -51,12 +52,51 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { onLoad} from '@dcloudio/uni-app'
+import { login, getUserInfo } from '../../api/api'
+
+onLoad(() => {
+	// uni.getUserProfile({
+	// 	desc: "获取用户头像和昵称",
+	// 	success(res) {
+	// 		console.log(res, 'success')
+	// 	},
+	// 	fail(err) {
+	// 		console.log(err, 'fail')
+	// 	}
+	// })
+})
 
 const userInfo = reactive({
 	nickName: '',
 	avatarUrl: ''
 })
+
 	
+
+const setFun = () => {
+	// 给用户一个确认的提醒
+	uni.showModal({
+		title: "温馨提示",
+		content: "亲，微信授权登录后才能正常使用小程序",
+		success(res) {
+			if (res.confirm) {
+				uni.login({
+					success: async (data) => {
+						console.log(data)
+						const { token } = await login(data.code)
+						console.log(token, 'token')
+						uni.setStorageSync('token', token)
+						// 根据token获取用户信息
+						const { avatarUrl, nickName } = await getUserInfo()
+						userInfo.avatarUrl = avatarUrl
+						userInfo.nickName = nickName
+					}
+				})
+			}
+		}
+	});
+}
 
 </script>
 

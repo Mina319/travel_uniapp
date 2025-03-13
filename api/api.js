@@ -9,3 +9,15 @@ export const getBanner = () => {
 export const getHomeList = () => {
 	return http('/user/getHomeList')
 }
+
+// 登录
+export const login = (code) => {
+	return http('/login', { code }, 'POST')
+}
+
+// 获取用户信息
+export const getUserInfo = () => {
+	return http('/getUserInfo')
+}
+
+
