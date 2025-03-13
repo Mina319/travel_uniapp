@@ -19646,6 +19646,7 @@ exports.props$5 = props$2;
 exports.props$6 = props$1;
 exports.props$7 = props;
 exports.r = r;
+exports.reactive = reactive;
 exports.ref = ref;
 exports.resolveComponent = resolveComponent;
 exports.s = s;

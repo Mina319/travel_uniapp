@@ -61,3 +61,29 @@
   color: #fff;
   font-size: 30rpx;
 }
+.content .users.data-v-2f1ef635 {
+  margin-top: 35rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  height: 280rpx;
+  background-color: #fff;
+  box-shadow: 1px 10rpx 20rpx #ececec;
+  border-radius: 16rpx;
+}
+.content .users .u-top.data-v-2f1ef635 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.content .users image.data-v-2f1ef635 {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.content .users .tit.data-v-2f1ef635 {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #333;
+}
