@@ -87,3 +87,21 @@
   font-weight: 700;
   color: #333;
 }
+.content .users .u-bottom.data-v-2f1ef635 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.content .users .u-bottom .u-item.data-v-2f1ef635 {
+  text-align: center;
+}
+.content .users .u-bottom .u-item .u-tit.data-v-2f1ef635 {
+  color: #757575;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+.content .users .u-bottom .u-item .num.data-v-2f1ef635 {
+  color: #000;
+  font-size: 33rpx;
+  font-weight: 700;
+}

@@ -23,12 +23,27 @@
 							{{ userInfo.nickName }}
 						</view>
 					</template>
-					
+				</view>
+				<view class="u-bottom">
+					<view class="u-item">
+						<view class="num">12</view>
+						<view class="u-tit">点赞</view>
+					</view>
+					<view class="u-item">
+						<view class="num">12</view>
+						<view class="u-tit">喜欢</view>
+					</view>
+					<view class="u-item">
+						<view class="num">12</view>
+						<view class="u-tit">浏览</view>
+					</view>
+					<view class="u-item">
+						<view class="num">12</view>
+						<view class="u-tit">收藏</view>
+					</view>
 				</view>
 			</view>
 			
-		</view>
-		<view class="listBox">
 		</view>
 	</view>
 </template>
@@ -108,6 +123,24 @@ const userInfo = reactive({
 			font-size: 30rpx;
 			font-weight: 700;
 			color: #333;
+		}
+		.u-bottom {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			.u-item {
+				text-align: center;
+				.u-tit {
+					color: #757575;
+					font-size: 26rpx;
+					margin-top: 10rpx;
+				}
+				.num {
+					color: #000;
+					font-size: 33rpx;
+					font-weight: 700;
+				}
+			}
 		}
 	}
 }
