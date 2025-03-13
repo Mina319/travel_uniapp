@@ -25,6 +25,7 @@
 /* 文章场景相关 */
 .content.data-v-2f1ef635 {
   height: 100vh;
+  background-color: #f5f5f5;
 }
 .content .topBox.data-v-2f1ef635 {
   width: 100%;
@@ -39,8 +40,24 @@
   width: 140%;
   height: 200px;
   position: absolute;
+  z-index: -1;
   top: 0;
   left: -20%;
   background-color: #00aaff;
   border-radius: 0 0 50% 50%;
+}
+.content .setBox.data-v-2f1ef635 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content .setBox .set-left.data-v-2f1ef635 {
+  width: 18%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content .setBox .txt.data-v-2f1ef635 {
+  color: #fff;
+  font-size: 30rpx;
 }
