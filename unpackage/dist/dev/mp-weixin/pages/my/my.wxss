@@ -133,3 +133,10 @@
   margin-left: 20rpx;
   padding: 0;
 }
+.content .listBox.data-v-2f1ef635 {
+  height: auto;
+  margin: -10rpx auto 0;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+}

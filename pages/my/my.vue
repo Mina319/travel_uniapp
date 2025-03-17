@@ -47,7 +47,15 @@
 			
 		</view>
 		<view class="listBox">
-			
+			<view class="lists">
+				<uni-list>
+					<uni-list-item  :show-extra-icon="true" :extra-icon="extraIcon1" showArrow title="个人信息" clickable></uni-list-item>
+					<uni-list-item  :show-extra-icon="true" :extra-icon="extraIcon2" showArrow title="我的购物车" clickable></uni-list-item>
+					<uni-list-item  :show-extra-icon="true" :extra-icon="extraIcon3" showArrow title="用户反馈" clickable></uni-list-item>
+					<uni-list-item  :show-extra-icon="true" :extra-icon="extraIcon4" showArrow title="我的邮件" clickable></uni-list-item>
+					<uni-list-item  :show-extra-icon="true" :extra-icon="extraIcon5" showArrow title="分享有礼" clickable></uni-list-item>
+				</uni-list>
+			</view>
 		</view>
 		<up-popup closeable :show="show" @close="close" round="20">
 			<view class="u-popup">
@@ -158,6 +166,36 @@ const setFun = () => {
 		}
 	});
 }
+
+const extraIcon1 = reactive({
+    color: '#666666',
+    size: '22',
+    type: 'auth'
+})
+
+const extraIcon2 = reactive({
+    color: '#666666',
+    size: '22',
+    type: 'cart'
+})
+
+const extraIcon3 = reactive({
+    color: '#666666',
+    size: '22',
+    type: 'chatboxes'
+})
+
+const extraIcon4 = reactive({
+    color: '#666666',
+    size: '22',
+    type: 'email'
+})
+
+const extraIcon5 = reactive({
+    color: '#666666',
+    size: '22',
+    type: 'gift'
+})
 
 </script>
 
@@ -271,7 +309,13 @@ const setFun = () => {
 			margin-left: 20rpx;
 			padding: 0;
 		}
-		
+	}
+	.listBox {
+		height: auto;
+		margin: -10rpx auto 0;
+		padding: 20rpx;
+		box-sizing: border-box;
+		border-radius: 12rpx;
 	}
 }
 

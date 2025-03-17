@@ -107,7 +107,8 @@ const _sfc_main = {
               }, item.isDot ? {
                 h: common_vendor.t(item.isDot)
               } : {}, {
-                i: index
+                i: index,
+                j: common_vendor.o((...args) => _ctx.goDetail && _ctx.goDetail(...args), index)
               });
             }),
             b: i0,
