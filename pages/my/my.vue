@@ -74,16 +74,17 @@ import { ref, reactive } from 'vue'
 import { onLoad} from '@dcloudio/uni-app'
 import { login, getUserInfo } from '../../api/api'
 
-onLoad(() => {
-	// uni.getUserProfile({
-	// 	desc: "获取用户头像和昵称",
-	// 	success(res) {
-	// 		console.log(res, 'success')
-	// 	},
-	// 	fail(err) {
-	// 		console.log(err, 'fail')
-	// 	}
-	// })
+onLoad(async() => {
+	// 免登陆逻辑
+	if(uni.getStorageSync('token') && !uni.getStorageSync('userInfo')) {
+		const { avatarUrl, nickName } = await getUserInfo()
+		userInfo.avatarUrl = avatarUrl
+		userInfo.nickName = nickName
+	} else if(uni.getStorageSync('token') && uni.getStorageSync('userInfo')) {
+		const { avatarUrl, nickName } = JSON.parse(uni.getStorageSync('userInfo'))
+		userInfo.avatarUrl = avatarUrl
+		userInfo.nickName = nickName
+	}
 })
 
 const userInfo = reactive({
@@ -101,15 +102,13 @@ const close = () => {
 
 // 确认按钮-提交
 const userSubmit = () => {
+	uni.setStorageSync('userInfo', JSON.stringify(userInfo))
 	// 关闭弹窗
 	// show.value = ref(false)
 	show.value = false
 }
 
 const onChooseavatar = () => {
-	// console.log(e)
-	// userInfo.avatarUrl = e.detail.avatarUrl
-	
 	uni.login({
 		success: (loginRes) => {
 			// 登录成功后获取用户信息

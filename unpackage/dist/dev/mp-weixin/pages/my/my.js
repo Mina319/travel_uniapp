@@ -15,7 +15,16 @@ if (!Math) {
 const _sfc_main = {
   __name: "my",
   setup(__props) {
-    common_vendor.onLoad(() => {
+    common_vendor.onLoad(async () => {
+      if (common_vendor.index.getStorageSync("token") && !common_vendor.index.getStorageSync("userInfo")) {
+        const { avatarUrl, nickName } = await api_api.getUserInfo();
+        userInfo.avatarUrl = avatarUrl;
+        userInfo.nickName = nickName;
+      } else if (common_vendor.index.getStorageSync("token") && common_vendor.index.getStorageSync("userInfo")) {
+        const { avatarUrl, nickName } = JSON.parse(common_vendor.index.getStorageSync("userInfo"));
+        userInfo.avatarUrl = avatarUrl;
+        userInfo.nickName = nickName;
+      }
     });
     const userInfo = common_vendor.reactive({
       nickName: "",
@@ -26,6 +35,7 @@ const _sfc_main = {
       show.value = false;
     };
     const userSubmit = () => {
+      common_vendor.index.setStorageSync("userInfo", JSON.stringify(userInfo));
       show.value = false;
     };
     const onChooseavatar = () => {
@@ -33,17 +43,17 @@ const _sfc_main = {
         success: (loginRes) => {
           common_vendor.index.getUserInfo({
             success: (infoRes) => {
-              common_vendor.index.__f__("log", "at pages/my/my.vue:118", "用户信息获取成功:", infoRes.userInfo);
+              common_vendor.index.__f__("log", "at pages/my/my.vue:117", "用户信息获取成功:", infoRes.userInfo);
               userInfo.avatarUrl = infoRes.userInfo.avatarUrl;
               userInfo.nickName = infoRes.userInfo.nickName;
             },
             fail: (err) => {
-              common_vendor.index.__f__("error", "at pages/my/my.vue:123", "获取用户信息失败:", err);
+              common_vendor.index.__f__("error", "at pages/my/my.vue:122", "获取用户信息失败:", err);
             }
           });
         },
         fail: (err) => {
-          common_vendor.index.__f__("error", "at pages/my/my.vue:128", "登录失败:", err);
+          common_vendor.index.__f__("error", "at pages/my/my.vue:127", "登录失败:", err);
         }
       });
     };
@@ -58,9 +68,9 @@ const _sfc_main = {
           if (res.confirm) {
             common_vendor.index.login({
               success: async (data) => {
-                common_vendor.index.__f__("log", "at pages/my/my.vue:147", data);
+                common_vendor.index.__f__("log", "at pages/my/my.vue:146", data);
                 const { token } = await api_api.login(data.code);
-                common_vendor.index.__f__("log", "at pages/my/my.vue:149", token, "token");
+                common_vendor.index.__f__("log", "at pages/my/my.vue:148", token, "token");
                 common_vendor.index.setStorageSync("token", token);
                 const { avatarUrl, nickName } = await api_api.getUserInfo();
                 userInfo.avatarUrl = avatarUrl;
