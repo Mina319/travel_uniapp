@@ -6982,7 +6982,7 @@ function initOnError() {
 function initRuntimeSocketService() {
   const hosts = "169.254.165.129,10.138.86.154,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_eGbLSO";
+  const id = "mp-weixin_m86C8g";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -18795,7 +18795,7 @@ const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
 const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
 const onPageScroll = /* @__PURE__ */ createHook(ON_PAGE_SCROLL);
 const onReachBottom = /* @__PURE__ */ createHook(ON_REACH_BOTTOM);
-const props$7 = defineMixin({
+const props$c = defineMixin({
   props: {
     // 搜索框形状，round-圆形，square-方形
     shape: {
@@ -18927,7 +18927,7 @@ const props$7 = defineMixin({
     }
   }
 });
-const props$6 = defineMixin({
+const props$b = defineMixin({
   props: {
     // 列表数组，元素可为字符串，如为对象可通过keyName指定目标属性名
     list: {
@@ -19052,7 +19052,7 @@ const props$6 = defineMixin({
     }
   }
 });
-const props$5 = defineMixin({
+const props$a = defineMixin({
   props: {
     // 显示的内容，数组
     text: {
@@ -19340,7 +19340,7 @@ const icons = {
   "uicon-zh": "",
   "uicon-en": ""
 };
-const props$4 = defineMixin({
+const props$9 = defineMixin({
   props: {
     // 图标类名
     name: {
@@ -19429,7 +19429,86 @@ const props$4 = defineMixin({
     }
   }
 });
-const props$3 = defineMixin({
+const props$8 = defineMixin({
+  props: {
+    // 是否展示弹窗
+    show: {
+      type: Boolean,
+      default: () => defProps.popup.show
+    },
+    // 是否显示遮罩
+    overlay: {
+      type: Boolean,
+      default: () => defProps.popup.overlay
+    },
+    // 弹出的方向，可选值为 top bottom right left center
+    mode: {
+      type: String,
+      default: () => defProps.popup.mode
+    },
+    // 动画时长，单位ms
+    duration: {
+      type: [String, Number],
+      default: () => defProps.popup.duration
+    },
+    // 是否显示关闭图标
+    closeable: {
+      type: Boolean,
+      default: () => defProps.popup.closeable
+    },
+    // 自定义遮罩的样式
+    overlayStyle: {
+      type: [Object, String],
+      default: () => defProps.popup.overlayStyle
+    },
+    // 点击遮罩是否关闭弹窗
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: () => defProps.popup.closeOnClickOverlay
+    },
+    // 层级
+    zIndex: {
+      type: [String, Number],
+      default: () => defProps.popup.zIndex
+    },
+    // 是否为iPhoneX留出底部安全距离
+    safeAreaInsetBottom: {
+      type: Boolean,
+      default: () => defProps.popup.safeAreaInsetBottom
+    },
+    // 是否留出顶部安全距离（状态栏高度）
+    safeAreaInsetTop: {
+      type: Boolean,
+      default: () => defProps.popup.safeAreaInsetTop
+    },
+    // 自定义关闭图标位置，top-left为左上角，top-right为右上角，bottom-left为左下角，bottom-right为右下角
+    closeIconPos: {
+      type: String,
+      default: () => defProps.popup.closeIconPos
+    },
+    // 是否显示圆角
+    round: {
+      type: [Boolean, String, Number],
+      default: () => defProps.popup.round
+    },
+    // mode=center，也即中部弹出时，是否使用缩放模式
+    zoom: {
+      type: Boolean,
+      default: () => defProps.popup.zoom
+    },
+    // 弹窗背景色，设置为transparent可去除白色背景
+    bgColor: {
+      type: String,
+      default: () => defProps.popup.bgColor
+    },
+    // 遮罩的透明度，0-1之间
+    overlayOpacity: {
+      type: [Number, String],
+      default: () => defProps.popup.overlayOpacity
+    }
+  }
+});
+const props$7 = defineMixin({
   props: {
     // 是否显示组件
     show: {
@@ -19488,7 +19567,7 @@ const props$3 = defineMixin({
     }
   }
 });
-const props$2 = defineMixin({
+const props$6 = defineMixin({
   props: {
     // 轮播的长度
     length: {
@@ -19517,7 +19596,7 @@ const props$2 = defineMixin({
     }
   }
 });
-const props$1 = defineMixin({
+const props$5 = defineMixin({
   props: {
     // 显示的内容，字符串
     text: {
@@ -19576,7 +19655,7 @@ const props$1 = defineMixin({
     }
   }
 });
-const props = defineMixin({
+const props$4 = defineMixin({
   props: {
     // 显示的内容，字符串
     text: {
@@ -19615,6 +19694,123 @@ const props = defineMixin({
     }
   }
 });
+const props$3 = defineMixin({
+  props: {
+    // 是否显示遮罩
+    show: {
+      type: Boolean,
+      default: () => defProps.overlay.show
+    },
+    // 层级z-index
+    zIndex: {
+      type: [String, Number],
+      default: () => defProps.overlay.zIndex
+    },
+    // 遮罩的过渡时间，单位为ms
+    duration: {
+      type: [String, Number],
+      default: () => defProps.overlay.duration
+    },
+    // 不透明度值，当做rgba的第四个参数
+    opacity: {
+      type: [String, Number],
+      default: () => defProps.overlay.opacity
+    }
+  }
+});
+const props$2 = defineMixin({
+  props: {
+    bgColor: {
+      type: String,
+      default: () => defProps.statusBar.bgColor
+    }
+  }
+});
+const props$1 = defineMixin({
+  props: {}
+});
+const props = defineMixin({
+  props: {
+    // 是否展示组件
+    show: {
+      type: Boolean,
+      default: () => defProps.transition.show
+    },
+    // 使用的动画模式
+    mode: {
+      type: String,
+      default: () => defProps.transition.mode
+    },
+    // 动画的执行时间，单位ms
+    duration: {
+      type: [String, Number],
+      default: () => defProps.transition.duration
+    },
+    // 使用的动画过渡函数
+    timingFunction: {
+      type: String,
+      default: () => defProps.transition.timingFunction
+    }
+  }
+});
+const getClassNames = (name) => ({
+  enter: `u-${name}-enter u-${name}-enter-active`,
+  "enter-to": `u-${name}-enter-to u-${name}-enter-active`,
+  leave: `u-${name}-leave u-${name}-leave-active`,
+  "leave-to": `u-${name}-leave-to u-${name}-leave-active`
+});
+const transitionMixin = {
+  methods: {
+    // 组件被点击发出事件
+    clickHandler() {
+      this.$emit("click");
+    },
+    // vue版本的组件进场处理
+    async vueEnter() {
+      const classNames = getClassNames(this.mode);
+      this.status = "enter";
+      this.$emit("beforeEnter");
+      this.inited = true;
+      this.display = true;
+      this.classes = classNames.enter;
+      await nextTick$1();
+      {
+        await sleep(20);
+        this.$emit("enter");
+        this.transitionEnded = false;
+        this.$emit("afterEnter");
+        this.classes = classNames["enter-to"];
+      }
+    },
+    // 动画离场处理
+    async vueLeave() {
+      if (!this.display)
+        return;
+      const classNames = getClassNames(this.mode);
+      this.status = "leave";
+      this.$emit("beforeLeave");
+      this.classes = classNames.leave;
+      await nextTick$1();
+      {
+        this.transitionEnded = false;
+        this.$emit("leave");
+        setTimeout(this.onTransitionEnd, this.duration);
+        this.classes = classNames["leave-to"];
+      }
+    },
+    // 完成过渡后触发
+    onTransitionEnd() {
+      if (this.transitionEnded)
+        return;
+      this.transitionEnded = true;
+      this.$emit(this.status === "leave" ? "afterLeave" : "afterEnter");
+      if (!this.show && this.display) {
+        this.display = false;
+        this.inited = false;
+      }
+    }
+  }
+};
 exports.Mock = Mock;
 exports._export_sfc = _export_sfc;
 exports.addStyle = addStyle;
@@ -19622,10 +19818,12 @@ exports.addUnit = addUnit;
 exports.colorGradient = colorGradient;
 exports.config = config;
 exports.createSSRApp = createSSRApp;
+exports.deepMerge = deepMerge$1;
 exports.e = e;
 exports.error = error;
 exports.f = f;
 exports.getPx = getPx;
+exports.getWindowInfo = getWindowInfo;
 exports.guid = guid;
 exports.icons = icons;
 exports.index = index$1;
@@ -19637,14 +19835,19 @@ exports.onLoad = onLoad;
 exports.onPageScroll = onPageScroll;
 exports.onReachBottom = onReachBottom;
 exports.p = p;
-exports.props = props$7;
-exports.props$1 = props$6;
-exports.props$2 = props$5;
-exports.props$3 = props$4;
-exports.props$4 = props$3;
-exports.props$5 = props$2;
-exports.props$6 = props$1;
-exports.props$7 = props;
+exports.props = props$c;
+exports.props$1 = props$b;
+exports.props$10 = props$2;
+exports.props$11 = props$1;
+exports.props$12 = props;
+exports.props$2 = props$a;
+exports.props$3 = props$9;
+exports.props$4 = props$8;
+exports.props$5 = props$7;
+exports.props$6 = props$6;
+exports.props$7 = props$5;
+exports.props$8 = props$4;
+exports.props$9 = props$3;
 exports.r = r;
 exports.reactive = reactive;
 exports.ref = ref;
@@ -19654,6 +19857,7 @@ exports.sleep = sleep;
 exports.sr = sr;
 exports.t = t;
 exports.test = test;
+exports.transitionMixin = transitionMixin;
 exports.uviewPlus = uviewPlus;
 exports.w = w;
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

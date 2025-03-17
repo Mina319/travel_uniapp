@@ -46,6 +46,25 @@
 			</view>
 			
 		</view>
+		<view class="listBox">
+			
+		</view>
+		<up-popup closeable :show="show" @close="close" round="20">
+			<view class="u-popup">
+				<view class="title">获取您的昵称、头像</view>
+				<view class="flex">
+					<view class="label">获取用户头像：</view>
+					<button class="avatar-warpper" @click="onChooseavatar">
+						<image class="avatar" :src="userInfo.avatarUrl" mode=""></image>
+					</button>
+				</view>
+				<view class="flex">
+					<view class="label">获取用户昵称：</view>
+					<input @input="changeName" type="nickname" >{{ userInfo.nickName }}</input>
+				</view>	
+				<button size="default" type="primary" @click="userSubmit">确定</button>
+			</view>
+		</up-popup>
 	</view>
 </template>
 
@@ -72,8 +91,50 @@ const userInfo = reactive({
 	avatarUrl: ''
 })
 
-	
+// 控制弹出层的显示
+const show = ref(false)
 
+const close = () => {
+	// show.value = ref(false)
+	show.value = false
+}
+
+// 确认按钮-提交
+const userSubmit = () => {
+	// 关闭弹窗
+	// show.value = ref(false)
+	show.value = false
+}
+
+const onChooseavatar = () => {
+	// console.log(e)
+	// userInfo.avatarUrl = e.detail.avatarUrl
+	
+	uni.login({
+		success: (loginRes) => {
+			// 登录成功后获取用户信息
+			uni.getUserInfo({
+				success: (infoRes) => {
+					console.log('用户信息获取成功:', infoRes.userInfo);
+					userInfo.avatarUrl = infoRes.userInfo.avatarUrl;
+					userInfo.nickName = infoRes.userInfo.nickName;
+				},
+				fail: (err) => {
+					console.error('获取用户信息失败:', err);
+				}
+			});
+		},
+		fail: (err) => {
+			console.error('登录失败:', err);
+		}
+	});
+
+}
+
+const changeName = (e) => {
+	userInfo.nickName = e.detail.value
+}
+ 
 const setFun = () => {
 	// 给用户一个确认的提醒
 	uni.showModal({
@@ -91,6 +152,7 @@ const setFun = () => {
 						const { avatarUrl, nickName } = await getUserInfo()
 						userInfo.avatarUrl = avatarUrl
 						userInfo.nickName = nickName
+						show.value = true
 					}
 				})
 			}
@@ -182,6 +244,35 @@ const setFun = () => {
 				}
 			}
 		}
+	}
+	.u-popup {
+		padding: 20rpx;
+		border-radius: 20rpx 20rpx 0 0;
+		.title {
+			font-size: 40rpx;
+			margin-bottom: 20rpx;
+			text-align: center;
+		}
+		.flex {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			border-bottom: 1px solid #f5f5f5;
+			padding: 24rpx 0;
+		}
+		image {
+			width: 70rpx;
+			height: 70rpx;
+		}
+		.avatar-warpper {
+			border: none;
+			border-radius: 10rpx;
+			width: 70rpx;
+			height: 70rpx;
+			margin-left: 20rpx;
+			padding: 0;
+		}
+		
 	}
 }
 

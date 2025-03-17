@@ -105,3 +105,31 @@
   font-size: 33rpx;
   font-weight: 700;
 }
+.content .u-popup.data-v-2f1ef635 {
+  padding: 20rpx;
+  border-radius: 20rpx 20rpx 0 0;
+}
+.content .u-popup .title.data-v-2f1ef635 {
+  font-size: 40rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+.content .u-popup .flex.data-v-2f1ef635 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 24rpx 0;
+}
+.content .u-popup image.data-v-2f1ef635 {
+  width: 70rpx;
+  height: 70rpx;
+}
+.content .u-popup .avatar-warpper.data-v-2f1ef635 {
+  border: none;
+  border-radius: 10rpx;
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 20rpx;
+  padding: 0;
+}
