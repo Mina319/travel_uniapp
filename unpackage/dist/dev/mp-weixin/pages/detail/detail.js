@@ -1,5 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const api_api = require("../../api/api.js");
 if (!Array) {
   const _easycom_up_navbar2 = common_vendor.resolveComponent("up-navbar");
   const _easycom_up_tag2 = common_vendor.resolveComponent("up-tag");
@@ -16,8 +17,13 @@ const _sfc_main = {
     const details = common_vendor.reactive({
       dt: ""
     });
+    const projectList = common_vendor.ref([]);
     common_vendor.onLoad((opt) => {
-      common_vendor.index.__f__("log", "at pages/detail/detail.vue:44", JSON.parse(decodeURIComponent(opt.item)));
+      api_api.detailProject().then((res) => {
+        projectList.value = res;
+        common_vendor.index.__f__("log", "at pages/detail/detail.vue:49", projectList.value);
+      });
+      common_vendor.index.__f__("log", "at pages/detail/detail.vue:51", JSON.parse(decodeURIComponent(opt.item)));
       details.dt = JSON.parse(decodeURIComponent(opt.item));
     });
     return (_ctx, _cache) => {

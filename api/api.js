@@ -20,4 +20,7 @@ export const getUserInfo = () => {
 	return http('/getUserInfo')
 }
 
-
+// 游玩项目
+export const detailProject = () => {
+	return http('/detail/project')
+}

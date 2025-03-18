@@ -35,12 +35,19 @@
 <script setup>
 	import { onLoad } from '@dcloudio/uni-app'
 	import { ref, reactive } from 'vue'
+	import { detailProject } from '../../api/api.js'
 	
 	const details = reactive({
 		dt: ''
 	})
 	
+	const projectList = ref([])
+	
 	onLoad((opt) => {
+		detailProject().then(res => {
+			projectList.value = res
+			console.log(projectList.value)
+		})
 		console.log(JSON.parse(decodeURIComponent(opt.item)))
 		details.dt = JSON.parse(decodeURIComponent(opt.item))
 	})

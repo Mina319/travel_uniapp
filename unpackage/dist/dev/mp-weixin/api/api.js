@@ -12,6 +12,10 @@ const login = (code) => {
 const getUserInfo = () => {
   return api_http.http("/getUserInfo");
 };
+const detailProject = () => {
+  return api_http.http("/detail/project");
+};
+exports.detailProject = detailProject;
 exports.getBanner = getBanner;
 exports.getHomeList = getHomeList;
 exports.getUserInfo = getUserInfo;
