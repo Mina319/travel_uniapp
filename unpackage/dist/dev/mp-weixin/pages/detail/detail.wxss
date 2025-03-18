@@ -56,3 +56,53 @@
   line-height: 40rpx;
   margin-bottom: 30rpx;
 }
+.detail .d-con .j-con .tj-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.detail .d-con .j-con .tj-list .item {
+  position: relative;
+  width: 48%;
+  margin-bottom: 20rpx;
+  box-shadow: 1px 2px 3px #e5e5e5e;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  overflow: hidden;
+}
+.detail .d-con .j-con .tj-list .item .topFixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  background-color: #ffaa7f;
+  color: #fff;
+  text-align: center;
+  font-size: 22rpx;
+  padding: 5rpx 20rpx;
+  box-sizing: border-box;
+}
+.detail .d-con .j-con .tj-list .item image {
+  width: 100%;
+  height: 200rpx;
+}
+.detail .d-con .j-con .tj-list .item .infos {
+  padding: 10rpx 15rpx;
+}
+.detail .d-con .j-con .tj-list .item .infos .tit {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 15rpx;
+  text-overflow: ellipsis;
+}
+.detail .d-con .j-con .tj-list .item .infos .desc {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.detail .d-con .j-con .tj-list .item .infos .desc .text {
+  font-size: 26rpx;
+  color: #8a8a8a;
+}
