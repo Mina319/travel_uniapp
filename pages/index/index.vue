@@ -6,7 +6,7 @@
 		<view class="list">
 			<up-waterfall v-model="flowList" ref="waterfallRef">
 				<template v-slot:left="{ leftList }">
-					<view class="demo-water" v-for="(item, index) in leftList" :key="index" @click="goDetail">
+					<view class="demo-water" v-for="(item, index) in leftList" :key="index" @click="goDetail(item)">
 						<up-lazy-load threshold="-450" border-radius="10" :image="item.img" :index="index" :native-mode="true"></up-lazy-load>
 						<view class="demo-title">{{ item.title}}</view>
 						<view class="demo-price">{{ item.times}}</view>
@@ -24,7 +24,7 @@
 					</view>
 				</template>
 				<template v-slot:right="{ rightList }">
-					<view class="demo-water" v-for="(item, index) in rightList" :key="index">
+					<view class="demo-water" v-for="(item, index) in rightList" :key="index" @click="goDetail(item)">
 							<up-lazy-load threshold="-450" border-radius="10" :image="item.img" :index="index" :native-mode="true"></up-lazy-load>
 							<view class="demo-title">{{ item.title}}</view>
 							<view class="demo-price">{{ item.times}}</view>
@@ -107,6 +107,13 @@
 			item.id = uni.$u.guid()
 			flowList.value.push(item)
 		}
+	}
+	
+	const goDetail = (item) => {
+		const can = JSON.stringify(item)
+		uni.navigateTo({
+			url: `/pages/detail/detail?item=${encodeURIComponent(can)}`
+		})
 	}
 </script>
 <style>

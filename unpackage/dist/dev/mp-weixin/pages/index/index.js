@@ -63,6 +63,12 @@ const _sfc_main = {
         flowList.value.push(item);
       }
     };
+    const goDetail = (item) => {
+      const can = JSON.stringify(item);
+      common_vendor.index.navigateTo({
+        url: `/pages/detail/detail?item=${encodeURIComponent(can)}`
+      });
+    };
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.o(($event) => keyword.value = $event),
@@ -108,7 +114,7 @@ const _sfc_main = {
                 h: common_vendor.t(item.isDot)
               } : {}, {
                 i: index,
-                j: common_vendor.o((...args) => _ctx.goDetail && _ctx.goDetail(...args), index)
+                j: common_vendor.o(($event) => goDetail(item), index)
               });
             }),
             b: i0,
@@ -141,7 +147,8 @@ const _sfc_main = {
               }, item.isDot ? {
                 h: common_vendor.t(item.isDot)
               } : {}, {
-                i: index
+                i: index,
+                j: common_vendor.o(($event) => goDetail(item), index)
               });
             }),
             b: i0,

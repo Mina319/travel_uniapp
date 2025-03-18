@@ -6982,7 +6982,7 @@ function initOnError() {
 function initRuntimeSocketService() {
   const hosts = "169.254.165.129,10.138.86.154,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_9O18Yd";
+  const id = "mp-weixin_3pmHgA";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -18795,7 +18795,7 @@ const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
 const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
 const onPageScroll = /* @__PURE__ */ createHook(ON_PAGE_SCROLL);
 const onReachBottom = /* @__PURE__ */ createHook(ON_REACH_BOTTOM);
-const props$c = defineMixin({
+const props$e = defineMixin({
   props: {
     // 搜索框形状，round-圆形，square-方形
     shape: {
@@ -18927,7 +18927,7 @@ const props$c = defineMixin({
     }
   }
 });
-const props$b = defineMixin({
+const props$d = defineMixin({
   props: {
     // 列表数组，元素可为字符串，如为对象可通过keyName指定目标属性名
     list: {
@@ -19052,7 +19052,7 @@ const props$b = defineMixin({
     }
   }
 });
-const props$a = defineMixin({
+const props$c = defineMixin({
   props: {
     // 显示的内容，数组
     text: {
@@ -19340,7 +19340,7 @@ const icons = {
   "uicon-zh": "",
   "uicon-en": ""
 };
-const props$9 = defineMixin({
+const props$b = defineMixin({
   props: {
     // 图标类名
     name: {
@@ -19429,7 +19429,7 @@ const props$9 = defineMixin({
     }
   }
 });
-const props$8 = defineMixin({
+const props$a = defineMixin({
   props: {
     // 是否展示弹窗
     show: {
@@ -19505,6 +19505,183 @@ const props$8 = defineMixin({
     overlayOpacity: {
       type: [Number, String],
       default: () => defProps.popup.overlayOpacity
+    }
+  }
+});
+const props$9 = defineMixin({
+  props: {
+    // 是否开启顶部安全区适配
+    safeAreaInsetTop: {
+      type: Boolean,
+      default: () => defProps.navbar.safeAreaInsetTop
+    },
+    // 固定在顶部时，是否生成一个等高元素，以防止塌陷
+    placeholder: {
+      type: Boolean,
+      default: () => defProps.navbar.placeholder
+    },
+    // 是否固定在顶部
+    fixed: {
+      type: Boolean,
+      default: () => defProps.navbar.fixed
+    },
+    // 是否显示下边框
+    border: {
+      type: Boolean,
+      default: () => defProps.navbar.border
+    },
+    // 左边的图标
+    leftIcon: {
+      type: String,
+      default: () => defProps.navbar.leftIcon
+    },
+    // 左边的提示文字
+    leftText: {
+      type: String,
+      default: () => defProps.navbar.leftText
+    },
+    // 左右的提示文字
+    rightText: {
+      type: String,
+      default: () => defProps.navbar.rightText
+    },
+    // 右边的图标
+    rightIcon: {
+      type: String,
+      default: () => defProps.navbar.rightIcon
+    },
+    // 标题
+    title: {
+      type: [String, Number],
+      default: () => defProps.navbar.title
+    },
+    // 标题颜色
+    titleColor: {
+      type: String,
+      default: () => defProps.navbar.titleColor
+    },
+    // 背景颜色
+    bgColor: {
+      type: String,
+      default: () => defProps.navbar.bgColor
+    },
+    // 标题的宽度
+    titleWidth: {
+      type: [String, Number],
+      default: () => defProps.navbar.titleWidth
+    },
+    // 导航栏高度
+    height: {
+      type: [String, Number],
+      default: () => defProps.navbar.height
+    },
+    // 左侧返回图标的大小
+    leftIconSize: {
+      type: [String, Number],
+      default: () => defProps.navbar.leftIconSize
+    },
+    // 左侧返回图标的颜色
+    leftIconColor: {
+      type: String,
+      default: () => defProps.navbar.leftIconColor
+    },
+    // 点击左侧区域(返回图标)，是否自动返回上一页
+    autoBack: {
+      type: Boolean,
+      default: () => defProps.navbar.autoBack
+    },
+    // 标题的样式，对象或字符串
+    titleStyle: {
+      type: [String, Object],
+      default: () => defProps.navbar.titleStyle
+    }
+  }
+});
+const props$8 = defineMixin({
+  props: {
+    // 标签类型info、primary、success、warning、error
+    type: {
+      type: String,
+      default: () => defProps.tag.type
+    },
+    // 不可用
+    disabled: {
+      type: [Boolean, String],
+      default: () => defProps.tag.disabled
+    },
+    // 标签的大小，large，medium，mini
+    size: {
+      type: String,
+      default: () => defProps.tag.size
+    },
+    // tag的形状，circle（两边半圆形）, square（方形，带圆角）
+    shape: {
+      type: String,
+      default: () => defProps.tag.shape
+    },
+    // 标签文字
+    text: {
+      type: [String, Number],
+      default: () => defProps.tag.text
+    },
+    // 背景颜色，默认为空字符串，即不处理
+    bgColor: {
+      type: String,
+      default: () => defProps.tag.bgColor
+    },
+    // 标签字体颜色，默认为空字符串，即不处理
+    color: {
+      type: String,
+      default: () => defProps.tag.color
+    },
+    // 标签的边框颜色
+    borderColor: {
+      type: String,
+      default: () => defProps.tag.borderColor
+    },
+    // 关闭按钮图标的颜色
+    closeColor: {
+      type: String,
+      default: () => defProps.tag.closeColor
+    },
+    // 点击时返回的索引值，用于区分例遍的数组哪个元素被点击了
+    name: {
+      type: [String, Number],
+      default: () => defProps.tag.name
+    },
+    // // 模式选择，dark|light|plain
+    // mode: {
+    // 	type: String,
+    // 	default: 'light'
+    // },
+    // 镂空时是否填充背景色
+    plainFill: {
+      type: Boolean,
+      default: () => defProps.tag.plainFill
+    },
+    // 是否镂空
+    plain: {
+      type: Boolean,
+      default: () => defProps.tag.plain
+    },
+    // 是否可关闭
+    closable: {
+      type: Boolean,
+      default: () => defProps.tag.closable
+    },
+    // 是否显示
+    show: {
+      type: Boolean,
+      default: () => defProps.tag.show
+    },
+    // 内置图标，或绝对路径的图片
+    icon: {
+      type: String,
+      default: () => defProps.tag.icon
+    },
+    iconColor: {
+      type: String,
+      default: () => defProps.tag.iconColor
     }
   }
 });
@@ -19835,19 +20012,21 @@ exports.onLoad = onLoad;
 exports.onPageScroll = onPageScroll;
 exports.onReachBottom = onReachBottom;
 exports.p = p;
-exports.props = props$c;
-exports.props$1 = props$b;
-exports.props$10 = props$2;
-exports.props$11 = props$1;
-exports.props$12 = props;
-exports.props$2 = props$a;
-exports.props$3 = props$9;
-exports.props$4 = props$8;
-exports.props$5 = props$7;
-exports.props$6 = props$6;
-exports.props$7 = props$5;
-exports.props$8 = props$4;
-exports.props$9 = props$3;
+exports.props = props$e;
+exports.props$1 = props$d;
+exports.props$10 = props$4;
+exports.props$11 = props$3;
+exports.props$12 = props$2;
+exports.props$13 = props$1;
+exports.props$14 = props;
+exports.props$2 = props$c;
+exports.props$3 = props$b;
+exports.props$4 = props$a;
+exports.props$5 = props$9;
+exports.props$6 = props$8;
+exports.props$7 = props$7;
+exports.props$8 = props$6;
+exports.props$9 = props$5;
 exports.r = r;
 exports.reactive = reactive;
 exports.ref = ref;
