@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "up-rate": "../../node-modules/uview-plus/components/u-rate/u-rate"
+  }
+}

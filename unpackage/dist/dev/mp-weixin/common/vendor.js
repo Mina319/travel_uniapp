@@ -6982,7 +6982,7 @@ function initOnError() {
 function initRuntimeSocketService() {
   const hosts = "169.254.165.129,10.138.86.154,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_3pmHgA";
+  const id = "mp-weixin_c-iEE1";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -18795,7 +18795,7 @@ const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
 const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
 const onPageScroll = /* @__PURE__ */ createHook(ON_PAGE_SCROLL);
 const onReachBottom = /* @__PURE__ */ createHook(ON_REACH_BOTTOM);
-const props$e = defineMixin({
+const props$f = defineMixin({
   props: {
     // 搜索框形状，round-圆形，square-方形
     shape: {
@@ -18927,7 +18927,7 @@ const props$e = defineMixin({
     }
   }
 });
-const props$d = defineMixin({
+const props$e = defineMixin({
   props: {
     // 列表数组，元素可为字符串，如为对象可通过keyName指定目标属性名
     list: {
@@ -19052,7 +19052,7 @@ const props$d = defineMixin({
     }
   }
 });
-const props$c = defineMixin({
+const props$d = defineMixin({
   props: {
     // 显示的内容，数组
     text: {
@@ -19340,7 +19340,7 @@ const icons = {
   "uicon-zh": "",
   "uicon-en": ""
 };
-const props$b = defineMixin({
+const props$c = defineMixin({
   props: {
     // 图标类名
     name: {
@@ -19429,7 +19429,7 @@ const props$b = defineMixin({
     }
   }
 });
-const props$a = defineMixin({
+const props$b = defineMixin({
   props: {
     // 是否展示弹窗
     show: {
@@ -19508,7 +19508,7 @@ const props$a = defineMixin({
     }
   }
 });
-const props$9 = defineMixin({
+const props$a = defineMixin({
   props: {
     // 是否开启顶部安全区适配
     safeAreaInsetTop: {
@@ -19597,7 +19597,7 @@ const props$9 = defineMixin({
     }
   }
 });
-const props$8 = defineMixin({
+const props$9 = defineMixin({
   props: {
     // 标签类型info、primary、success、warning、error
     type: {
@@ -19682,6 +19682,75 @@ const props$8 = defineMixin({
     iconColor: {
       type: String,
       default: () => defProps.tag.iconColor
+    }
+  }
+});
+const props$8 = defineMixin({
+  props: {
+    // 用于v-model双向绑定选中的星星数量
+    modelValue: {
+      type: [String, Number],
+      default: () => defProps.rate.value
+    },
+    // 要显示的星星数量
+    count: {
+      type: [String, Number],
+      default: () => defProps.rate.count
+    },
+    // 是否不可选中
+    disabled: {
+      type: Boolean,
+      default: () => defProps.rate.disabled
+    },
+    // 是否只读
+    readonly: {
+      type: Boolean,
+      default: () => defProps.rate.readonly
+    },
+    // 星星的大小，单位px
+    size: {
+      type: [String, Number],
+      default: () => defProps.rate.size
+    },
+    // 未选中时的颜色
+    inactiveColor: {
+      type: String,
+      default: () => defProps.rate.inactiveColor
+    },
+    // 选中的颜色
+    activeColor: {
+      type: String,
+      default: () => defProps.rate.activeColor
+    },
+    // 星星之间的间距，单位px
+    gutter: {
+      type: [String, Number],
+      default: () => defProps.rate.gutter
+    },
+    // 最少能选择的星星个数
+    minCount: {
+      type: [String, Number],
+      default: () => defProps.rate.minCount
+    },
+    // 是否允许半星
+    allowHalf: {
+      type: Boolean,
+      default: () => defProps.rate.allowHalf
+    },
+    // 选中时的图标(星星)
+    activeIcon: {
+      type: String,
+      default: () => defProps.rate.activeIcon
+    },
+    // 未选中时的图标(星星)
+    inactiveIcon: {
+      type: String,
+      default: () => defProps.rate.inactiveIcon
+    },
+    // 是否可以通过滑动手势选择评分
+    touchable: {
+      type: Boolean,
+      default: () => defProps.rate.touchable
     }
   }
 });
@@ -20011,23 +20080,26 @@ exports.o = o;
 exports.onLoad = onLoad;
 exports.onPageScroll = onPageScroll;
 exports.onReachBottom = onReachBottom;
+exports.os = os;
 exports.p = p;
-exports.props = props$e;
-exports.props$1 = props$d;
-exports.props$10 = props$4;
-exports.props$11 = props$3;
-exports.props$12 = props$2;
-exports.props$13 = props$1;
-exports.props$14 = props;
-exports.props$2 = props$c;
-exports.props$3 = props$b;
-exports.props$4 = props$a;
-exports.props$5 = props$9;
-exports.props$6 = props$8;
-exports.props$7 = props$7;
-exports.props$8 = props$6;
-exports.props$9 = props$5;
+exports.props = props$f;
+exports.props$1 = props$e;
+exports.props$10 = props$5;
+exports.props$11 = props$4;
+exports.props$12 = props$3;
+exports.props$13 = props$2;
+exports.props$14 = props$1;
+exports.props$15 = props;
+exports.props$2 = props$d;
+exports.props$3 = props$c;
+exports.props$4 = props$b;
+exports.props$5 = props$a;
+exports.props$6 = props$9;
+exports.props$7 = props$8;
+exports.props$8 = props$7;
+exports.props$9 = props$6;
 exports.r = r;
+exports.range = range;
 exports.reactive = reactive;
 exports.ref = ref;
 exports.resolveComponent = resolveComponent;

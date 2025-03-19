@@ -30,6 +30,13 @@
 				// 自定义导航栏
 				"navigationStyle": "custom" 
 			}
+		},
+		{
+			"path" : "pages/line/line",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
 		}
 	],
 	"tabBar": {
@@ -74,5 +81,5 @@
 			"^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
 			"^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
 			}
-		}
+	}
 }

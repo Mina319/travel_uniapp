@@ -23,7 +23,7 @@
 				<view class="j-con ls">
 					<view class="tit" style="font-size: 34rpx;">游玩推荐</view>
 					<view class="jj tj-list" >
-						<view class="item" v-for="(item, index) in projectList" :key="index">
+						<view class="item" v-for="(item, index) in projectList" :key="index" @click="goLine(item)">
 							<image :src="item.url" mode="aspectFill"></image>
 							<view class="topFixed">{{ item.tag }}</view>
 							<view class="infos">
@@ -66,7 +66,11 @@
 		details.dt = JSON.parse(decodeURIComponent(opt.item))
 	})
 	
-
+	const goLine = (item) => {
+		uni.navigateTo({
+			url: `/pages/line/line?id=${item.id}`
+		})
+	}
 </script>
 
 <style lang="scss">
@@ -116,7 +120,6 @@
 					width: 48%;
 					margin-bottom: 20rpx;
 					box-shadow: 1px 2px 3px #e5e5e5e;
-					// border-radius: 0 20rpx;
 					border-top-left-radius: 20rpx;
 					border-top-right-radius: 20rpx;
 					overflow: hidden;

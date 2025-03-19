@@ -33,7 +33,7 @@ const _sfc_main = {
     }
   },
   // 将mixin挂在到组件中，实际上为一个vue格式对象。
-  mixins: [common_vendor.mpMixin, common_vendor.mixin, common_vendor.transitionMixin, common_vendor.props$14],
+  mixins: [common_vendor.mpMixin, common_vendor.mixin, common_vendor.transitionMixin, common_vendor.props$15],
   watch: {
     show: {
       handler(newVal) {

@@ -28,6 +28,11 @@ const _sfc_main = {
       common_vendor.index.__f__("log", "at pages/detail/detail.vue:65", JSON.parse(decodeURIComponent(opt.item)));
       details.dt = JSON.parse(decodeURIComponent(opt.item));
     });
+    const goLine = (item) => {
+      common_vendor.index.navigateTo({
+        url: `/pages/line/line?id=${item.id}`
+      });
+    };
     return (_ctx, _cache) => {
       return {
         a: common_vendor.p({
@@ -52,7 +57,8 @@ const _sfc_main = {
             c: common_vendor.t(item.title),
             d: "3adf1612-2-" + i0,
             e: common_vendor.t(item.desc),
-            f: index
+            f: index,
+            g: common_vendor.o(($event) => goLine(item), index)
           };
         }),
         h: common_vendor.p({

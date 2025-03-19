@@ -15,9 +15,13 @@ const getUserInfo = () => {
 const detailProject = () => {
   return api_http.http("/detail/project");
 };
+const projectInfo = (data) => {
+  return api_http.http("/project/info", data);
+};
 exports.detailProject = detailProject;
 exports.getBanner = getBanner;
 exports.getHomeList = getHomeList;
 exports.getUserInfo = getUserInfo;
 exports.login = login;
+exports.projectInfo = projectInfo;
 //# sourceMappingURL=../../.sourcemap/mp-weixin/api/api.js.map

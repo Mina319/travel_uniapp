@@ -24,3 +24,8 @@ export const getUserInfo = () => {
 export const detailProject = () => {
 	return http('/detail/project')
 }
+
+// 项目详情
+export const projectInfo = (data) => {
+	return http('/project/info', data)
+}
