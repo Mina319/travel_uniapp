@@ -6982,7 +6982,7 @@ function initOnError() {
 function initRuntimeSocketService() {
   const hosts = "169.254.165.129,10.138.86.154,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_c-iEE1";
+  const id = "mp-weixin_twSwE7";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -18795,7 +18795,7 @@ const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
 const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
 const onPageScroll = /* @__PURE__ */ createHook(ON_PAGE_SCROLL);
 const onReachBottom = /* @__PURE__ */ createHook(ON_REACH_BOTTOM);
-const props$f = defineMixin({
+const props$g = defineMixin({
   props: {
     // 搜索框形状，round-圆形，square-方形
     shape: {
@@ -18927,7 +18927,7 @@ const props$f = defineMixin({
     }
   }
 });
-const props$e = defineMixin({
+const props$f = defineMixin({
   props: {
     // 列表数组，元素可为字符串，如为对象可通过keyName指定目标属性名
     list: {
@@ -19052,7 +19052,7 @@ const props$e = defineMixin({
     }
   }
 });
-const props$d = defineMixin({
+const props$e = defineMixin({
   props: {
     // 显示的内容，数组
     text: {
@@ -19340,7 +19340,7 @@ const icons = {
   "uicon-zh": "",
   "uicon-en": ""
 };
-const props$c = defineMixin({
+const props$d = defineMixin({
   props: {
     // 图标类名
     name: {
@@ -19429,7 +19429,7 @@ const props$c = defineMixin({
     }
   }
 });
-const props$b = defineMixin({
+const props$c = defineMixin({
   props: {
     // 是否展示弹窗
     show: {
@@ -19508,7 +19508,7 @@ const props$b = defineMixin({
     }
   }
 });
-const props$a = defineMixin({
+const props$b = defineMixin({
   props: {
     // 是否开启顶部安全区适配
     safeAreaInsetTop: {
@@ -19597,7 +19597,7 @@ const props$a = defineMixin({
     }
   }
 });
-const props$9 = defineMixin({
+const props$a = defineMixin({
   props: {
     // 标签类型info、primary、success、warning、error
     type: {
@@ -19685,7 +19685,7 @@ const props$9 = defineMixin({
     }
   }
 });
-const props$8 = defineMixin({
+const props$9 = defineMixin({
   props: {
     // 用于v-model双向绑定选中的星星数量
     modelValue: {
@@ -19751,6 +19751,40 @@ const props$8 = defineMixin({
     touchable: {
       type: Boolean,
       default: () => defProps.rate.touchable
+    }
+  }
+});
+const props$8 = defineMixin({
+  props: {
+    // 指示器的整体宽度
+    indicatorWidth: {
+      type: [String, Number],
+      default: () => defProps.scrollList.indicatorWidth
+    },
+    // 滑块的宽度
+    indicatorBarWidth: {
+      type: [String, Number],
+      default: () => defProps.scrollList.indicatorBarWidth
+    },
+    // 是否显示面板指示器
+    indicator: {
+      type: Boolean,
+      default: () => defProps.scrollList.indicator
+    },
+    // 指示器非激活颜色
+    indicatorColor: {
+      type: String,
+      default: () => defProps.scrollList.indicatorColor
+    },
+    // 指示器的激活颜色
+    indicatorActiveColor: {
+      type: String,
+      default: () => defProps.scrollList.indicatorActiveColor
+    },
+    // 指示器样式，可通过bottom，left，right进行定位
+    indicatorStyle: {
+      type: [String, Object],
+      default: () => defProps.scrollList.indicatorStyle
     }
   }
 });
@@ -20082,22 +20116,23 @@ exports.onPageScroll = onPageScroll;
 exports.onReachBottom = onReachBottom;
 exports.os = os;
 exports.p = p;
-exports.props = props$f;
-exports.props$1 = props$e;
-exports.props$10 = props$5;
-exports.props$11 = props$4;
-exports.props$12 = props$3;
-exports.props$13 = props$2;
-exports.props$14 = props$1;
-exports.props$15 = props;
-exports.props$2 = props$d;
-exports.props$3 = props$c;
-exports.props$4 = props$b;
-exports.props$5 = props$a;
-exports.props$6 = props$9;
-exports.props$7 = props$8;
-exports.props$8 = props$7;
-exports.props$9 = props$6;
+exports.props = props$g;
+exports.props$1 = props$f;
+exports.props$10 = props$6;
+exports.props$11 = props$5;
+exports.props$12 = props$4;
+exports.props$13 = props$3;
+exports.props$14 = props$2;
+exports.props$15 = props$1;
+exports.props$16 = props;
+exports.props$2 = props$e;
+exports.props$3 = props$d;
+exports.props$4 = props$c;
+exports.props$5 = props$b;
+exports.props$6 = props$a;
+exports.props$7 = props$9;
+exports.props$8 = props$8;
+exports.props$9 = props$7;
 exports.r = r;
 exports.range = range;
 exports.reactive = reactive;

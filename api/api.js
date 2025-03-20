@@ -29,3 +29,8 @@ export const detailProject = () => {
 export const projectInfo = (data) => {
 	return http('/project/info', data)
 }
+
+// 我的喜欢
+export const likeList = () => {
+	return http('/like/list')
+}

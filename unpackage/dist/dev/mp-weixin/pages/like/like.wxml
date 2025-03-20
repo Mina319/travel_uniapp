@@ -1,1 +1,1 @@
-<view class="{{[virtualHostClass]}}" style="{{virtualHostStyle}}" hidden="{{virtualHostHidden}}" id="{{virtualHostId}}"></view>
+<view class="{{['link', virtualHostClass]}}" style="{{virtualHostStyle}}" hidden="{{virtualHostHidden}}" id="{{virtualHostId}}"><view class="jj tj-list"><view wx:for="{{a}}" wx:for-item="item" wx:key="d" class="item"><image src="{{item.a}}" mode="aspectFill"></image><view class="topFixed">喜欢</view><view class="infos"><view class="tit">{{item.b}}</view><view class="desc"><text class="text">{{item.c}}</text></view></view></view></view></view>

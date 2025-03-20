@@ -2,7 +2,7 @@
 const common_vendor = require("../../../../common/vendor.js");
 const _sfc_main = {
   name: "u-status-bar",
-  mixins: [common_vendor.mpMixin, common_vendor.mixin, common_vendor.props$13],
+  mixins: [common_vendor.mpMixin, common_vendor.mixin, common_vendor.props$14],
   data() {
     return {
       isH5: false

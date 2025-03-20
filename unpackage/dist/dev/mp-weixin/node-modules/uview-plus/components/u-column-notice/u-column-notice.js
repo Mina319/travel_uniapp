@@ -1,7 +1,7 @@
 "use strict";
 const common_vendor = require("../../../../common/vendor.js");
 const _sfc_main = {
-  mixins: [common_vendor.mpMixin, common_vendor.mixin, common_vendor.props$10],
+  mixins: [common_vendor.mpMixin, common_vendor.mixin, common_vendor.props$11],
   watch: {
     text: {
       immediate: true,

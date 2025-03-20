@@ -19,6 +19,17 @@
 				<text>项目推荐</text>
 				<up-rate :count="count" v-model="detailInfo.count"></up-rate>
 			</view>
+			<view class="scroll-view">
+				<up-scroll-list
+					:indicator="true"
+					indicatorColor="#fff0f0"
+					indicatorActiveColor="#f56c6c">
+					<view class="items" v-for="(item, index) in detailInfo.other" :key="item.id">
+						<image class="img" :src="item.url" mode="aspectFill"></image>
+						<view class="title">{{ item.name }}</view>
+					</view>
+				</up-scroll-list>
+			</view>
 		</view>
 	</view>
 </template>
@@ -60,6 +71,33 @@
 </script>
 
 <style lang="scss">
-
+.infos {
+	padding: 20rpx;
+	box-sizing: border-box;
+	.tit {
+		font-size: 34rpx;
+		font-weight: 600;
+		color: #333;
+	}
+	.stars {
+		font-size: 28rpx;
+		margin: 20rpx 0 40rpx;
+		display: flex;
+	}
+	.items {
+		margin-right: 20rpx;
+		text-align: center;
+	}
+	.img {
+		width: 320rpx;
+		height: 200rpx;
+		border-radius: 14rpx;
+	}
+	.title {
+		font-size: 28rpx;
+		font-weight: 600;
+		color: #333;
+	}
+}
 
 </style>

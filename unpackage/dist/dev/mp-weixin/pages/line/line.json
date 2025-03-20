@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "",
   "usingComponents": {
-    "up-rate": "../../node-modules/uview-plus/components/u-rate/u-rate"
+    "up-rate": "../../node-modules/uview-plus/components/u-rate/u-rate",
+    "up-scroll-list": "../../node-modules/uview-plus/components/u-scroll-list/u-scroll-list"
   }
 }
